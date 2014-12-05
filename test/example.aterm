@@ -1,0 +1,115 @@
+'CompilationUnit(
+  'Some(
+    'PackageDec(
+      'ListWrap(
+        .KList
+      ),,
+      'PackageName(
+        'ListWrap(
+          'Id(
+            # "org"(.KList)
+          ),,
+          'Id(
+            # "kframework"(.KList)
+          ),,
+          'Id(
+            # "k"(.KList)
+          )
+        )
+      )
+    )
+  ),,
+  'ListWrap(
+    .KList
+  ),,
+  'ListWrap(
+    'ClassDec(
+      'ClassDecHead(
+        'ListWrap(
+          'Public(
+            .KList
+          )
+        ),,
+        'Id(
+          # "Main"(.KList)
+        ),,
+        'None(
+          .KList
+        ),,
+        'None(
+          .KList
+        ),,
+        'None(
+          .KList
+        )
+      ),,
+      'ClassBody(
+        'ListWrap(
+          'MethodDec(
+            'MethodDecHead(
+              'ListWrap(
+                'Public(
+                  .KList
+                ),,
+                'Static(
+                  .KList
+                )
+              ),,
+              'None(
+                .KList
+              ),,
+              'Void(
+                .KList
+              ),,
+              'Id(
+                # "Main"(.KList)
+              ),,
+              'ListWrap(
+                .KList
+              ),,
+              'None(
+                .KList
+              )
+            ),,
+            'Block(
+              'ListWrap(
+                'ExprStm(
+                  'Invoke(
+                    'Method(
+                      'MethodName(
+                        'AmbName(
+                          'AmbName(
+                            'Id(
+                              # "System"(.KList)
+                            )
+                          ),,
+                          'Id(
+                            # "out"(.KList)
+                          )
+                        ),,
+                        'Id(
+                          # "println"(.KList)
+                        )
+                      )
+                    ),,
+                    'ListWrap(
+                      'Lit(
+                        'String(
+                          'ListWrap(
+                            'Chars(
+                              # "something in a string"(.KList)
+                            )
+                          )
+                        )
+                      )
+                    )
+                  )
+                )
+              )
+            )
+          )
+        )
+      )
+    )
+  )
+)

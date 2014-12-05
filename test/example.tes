@@ -1,0 +1,9 @@
+package org.kframework.k;
+
+public class Main {
+	
+	public static void Main() {
+		System.out.println("something in a string");
+	}
+	
+}

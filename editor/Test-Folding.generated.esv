@@ -1,0 +1,46 @@
+module Test-Folding.generated
+
+folding Default folding definitions
+  
+  // Folding rules indicate which syntactic constructs can be folded,
+  // and take one of the following forms:
+  //
+  //   <sort>.<constructor>
+  //
+  //   <sort>._
+  //
+  //   _.<constructor>
+  //
+  // To indicate that an element should always be folded, add
+  // a (folded) annotation:
+  //
+  //   _.Imports (folded)
+  //
+  // To disable a folding rule defined elsewhere, add a (disabled) annotation:
+  //
+  //   Definition._ (disabled)
+  
+  CompilationUnit.CompilationUnit
+  PackageDec.PackageDec
+  Expr.Lit
+  StringLiteral
+  StringLiteral.String
+  VarDecId.ArrayVarDecId
+  OptTypeParams0
+  TypeParams.TypeParams
+  TypeParam.TypeParam
+  OptTypeBound0
+  TypeBound.TypeBound
+  OptThrows0
+  Throws.ThrowsDec
+  ClassType.ClassType
+  OptInterfaces0
+  Interfaces.ImplementsDec
+  InterfaceType.InterfaceType
+  OptExtendsInterfaces0
+  ExtendsInterfaces.ExtendsInterfaces
+  MethodSpec.SuperMethod
+  MethodSpec.QSuperMethod
+  MethodSpec.GenericMethod
+  PackageName.PackageName
+  ImportDec.TypeImportOnDemandDec

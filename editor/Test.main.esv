@@ -1,0 +1,31 @@
+module Test.main
+
+imports
+  Test-Colorer
+  Test-Completions
+  Test-Folding
+  Test-Menus
+  Test-Refactorings
+  Test-References
+  Test-Syntax
+  Test-Views
+
+language General properties
+  
+  name:          Test
+  id:            Test
+  extends:       Root
+  
+  description:   "Spoofax-generated editor for the Test language"
+  url:           http://strategoxt.org
+  
+  extensions:    tes
+  table:         include/Test.tbl
+  start symbols: CompilationUnit
+  
+  provider:      include/test.ctree
+  provider:      include/test-java.jar
+  
+  observer:      editor-analyze (multifile)
+  
+  on save:       editor-save
