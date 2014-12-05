@@ -4,18 +4,16 @@ imports
 
 	libstratego-gpp
 	lib/runtime/refactoring/-
-	src-gen/pp/Test-pp
+
 
 rules
 	
   pp-Test-string =
-    prettyprint-SDF-start-symbols
-    ; !V([], <id>)
+     !V([], <id>)
     ; box2text-string(|120)
       
   pp-partial-Test-string =
-    prettyprint-example
-    ; !V([], <id>)
+     !V([], <id>)
     ; box2text-string(|120)
       
   pp-debug :

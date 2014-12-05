@@ -39,6 +39,7 @@ folding Default folding definitions
   InterfaceType.InterfaceType
   OptExtendsInterfaces0
   ExtendsInterfaces.ExtendsInterfaces
+  DimList.DimList
   MethodSpec.SuperMethod
   MethodSpec.QSuperMethod
   MethodSpec.GenericMethod
