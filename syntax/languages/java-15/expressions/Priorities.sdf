@@ -5,7 +5,7 @@ imports
 
 exports
   context-free priorities
-      Expr "." "new" TypeArgs? Id TypeArgs? "(" {Expr ","}* ")" ClassBody? -> Expr
+      Expr "." "new" TypeArgs? Id TypeArgs? "(" ExprList ")" ClassBody? -> Expr
     > {right:
         Expr "++" -> Expr
         Expr "--" -> Expr

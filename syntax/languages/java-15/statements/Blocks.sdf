@@ -15,8 +15,8 @@ exports
     Block
 
   context-free syntax
-    "{" BlockStm* "}" -> Block {cons("Block")}
-
+    "{" BlockStmList "}" -> Block {cons("Block")}
+	BlockStm* -> BlockStmList {cons("BlockStmList")}
     LocalVarDecStm  -> BlockStm 
     ClassDec        -> BlockStm {cons("ClassDecStm")}
     Stm             -> BlockStm

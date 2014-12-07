@@ -55,8 +55,10 @@ exports
   sorts SwitchBlock SwitchGroup SwitchLabel
   context-free syntax
     "switch" "(" Expr ")" SwitchBlock -> Stm {cons("Switch")}
-    "{" SwitchGroup* SwitchLabel* "}" -> SwitchBlock {cons("SwitchBlock")}
-    SwitchLabel+ BlockStm+ -> SwitchGroup  {cons("SwitchGroup")}
+    "{" SwitchGroupList SwitchLabelList "}" -> SwitchBlock {cons("SwitchBlock")}
+    SwitchLabelList BlockStmList -> SwitchGroup  {cons("SwitchGroup")}
+    SwitchGroup* -> SwitchGroupList {cons("SwitchGroupList")}
+    SwitchLabel* -> SwitchLabelList {cons("SwitchLabelList")}
 
     "case" Expr ":" -> SwitchLabel {cons("Case")}
     "default"   ":" -> SwitchLabel {cons("Default")}
@@ -78,8 +80,8 @@ exports
    %% Section 14.14: The For Statement
    %%%
   context-free syntax
-    "for" "(" LocalVarDec ";" Expr? ";" {Expr ","}* ")" Stm -> Stm {cons("For")}
-    "for" "(" {Expr ","}* ";" Expr? ";" {Expr ","}* ")" Stm -> Stm {cons("For")}
+    "for" "(" LocalVarDec ";" Expr? ";" ExprList ")" Stm -> Stm {cons("For")}
+    "for" "(" ExprList ";" Expr? ";" ExprList ")" Stm -> Stm {cons("For")}
 
     "for" "(" FormalParam ":" Expr ")" Stm -> Stm {cons("ForEach")}
 
@@ -118,6 +120,7 @@ exports
    %%%
   sorts CatchClause
   context-free syntax
-    "try" Block CatchClause+ -> Stm {cons("Try")}
-    "try" Block CatchClause* "finally" Block -> Stm {cons("Try")}
+    "try" Block CatchClauseList -> Stm {cons("Try")}
+    "try" Block CatchClauseList "finally" Block -> Stm {cons("Try")}
     "catch" "(" FormalParam ")" Block -> CatchClause {cons("Catch")}
+	CatchClause* -> CatchClauseList {cons("CatchClauseList")}

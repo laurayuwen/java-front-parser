@@ -26,18 +26,18 @@ folding Default folding definitions
   StringLiteral
   StringLiteral.String
   VarDecId.ArrayVarDecId
-  OptTypeParams0
+  OptTypeParams2
   TypeParams.TypeParams
   TypeParam.TypeParam
-  OptTypeBound0
+  OptTypeBound2
   TypeBound.TypeBound
-  OptThrows0
+  OptThrows2
   Throws.ThrowsDec
   ClassType.ClassType
-  OptInterfaces0
+  OptInterfaces2
   Interfaces.ImplementsDec
   InterfaceType.InterfaceType
-  OptExtendsInterfaces0
+  OptExtendsInterfaces2
   ExtendsInterfaces.ExtendsInterfaces
   DimList.DimList
   MethodSpec.SuperMethod

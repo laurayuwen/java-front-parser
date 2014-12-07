@@ -14,7 +14,8 @@ exports
     WildcardBound
     
   context-free syntax
-    "<" {ActualTypeArg ","}+ ">" -> TypeArgs {cons("TypeArgs")}
+    "<" ActualTypeArgList ">" -> TypeArgs {cons("TypeArgs")}
+    {ActualTypeArg ","}+ -> ActualTypeArgList {cons("ActualTypeArgList")}
 
     Type               -> ActualTypeArg
     "?" WildcardBound? -> ActualTypeArg {cons("Wildcard")}

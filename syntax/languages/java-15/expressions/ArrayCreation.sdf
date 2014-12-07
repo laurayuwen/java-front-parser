@@ -17,9 +17,10 @@ exports
   context-free syntax
     ArrayCreationExpr     -> Expr
 
-    "new" ArrayBaseType DimExpr+ DimList  -> ArrayCreationExpr {cons("NewArray")}
-    "new" ArrayBaseType Dim+ ArrayInit -> ArrayCreationExpr {cons("NewArray")}
+    "new" ArrayBaseType DimExprList DimList  -> ArrayCreationExpr {cons("NewArray")}
+    "new" ArrayBaseType DimList ArrayInit -> ArrayCreationExpr {cons("NewArray")}
     Dim* -> DimList {cons("DimList")}
+    DimExpr+ -> DimExprList {cons("DimExprList")}
 
     PrimType -> ArrayBaseType
     TypeName -> ArrayBaseType

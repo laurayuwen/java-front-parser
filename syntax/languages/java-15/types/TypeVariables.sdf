@@ -18,8 +18,11 @@ exports
   context-free syntax
     TypeVarId TypeBound? -> TypeParam {cons("TypeParam")}
     
-    "extends" {ClassOrInterfaceType "&"}+ -> TypeBound {cons("TypeBound")}
-    "<" {TypeParam ","}+ ">" -> TypeParams {cons("TypeParams")}
-
+    "extends" ClassOrInterfaceTypeList -> TypeBound {cons("TypeBound")}
+    {ClassOrInterfaceType "&"}+ -> ClassOrInterfaceTypeList {cons("ClassOrInterfaceTypeList")}
+    
+    "<" TypeParamList ">" -> TypeParams {cons("TypeParams")}
+	{TypeParam ","}+ -> TypeParamList {cons("TypeParamList")}
+	
     Id -> TypeVarId
     
