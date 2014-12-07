@@ -16,18 +16,20 @@ exports
     ElemValPair
 
   context-free syntax
-    "@" TypeName "(" {ElemValPair ","}* ")" -> Anno {cons("Anno")}
+    "@" TypeName "(" ElemValPairList ")" 	-> Anno {cons("Anno")}
     "@" TypeName "(" ElemVal ")"            -> Anno {cons("SingleElemAnno")}
     "@" TypeName                            -> Anno {cons("MarkerAnno")}
 
   context-free syntax  
     Id "=" ElemVal -> ElemValPair {cons("ElemValPair")}
+    {ElemValPair ","}* -> ElemValPairList {cons("ElemValPairList")}
 
     Expr -> ElemVal
     Anno -> ElemVal
 
-    "{" {ElemVal ","}*     "}" -> ElemVal {cons("ElemValArrayInit")}
-    "{" {ElemVal ","}* "," "}" -> ElemVal {cons("ElemValArrayInit")}
+    "{" ElemValList     "}" -> ElemVal {cons("ElemValArrayInit")}
+    "{" ElemValList "," "}" -> ElemVal {cons("ElemValArrayInit")}
+    {ElemVal ","}* -> ElemValList {cons("ElemValList")} 
 
     %% Assignments are not allowed as element values.
     LHS "=" Expr -> ElemVal {reject}

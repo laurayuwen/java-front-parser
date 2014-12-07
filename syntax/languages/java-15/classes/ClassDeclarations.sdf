@@ -27,9 +27,10 @@ exports
     EnumDec -> ClassDec
 
     ClassDecHead ClassBody -> ClassDec {cons("ClassDec")}
-    "{" ClassBodyDec* "}" -> ClassBody {cons("ClassBody")}
+    "{" ClassBodyDecList "}" -> ClassBody {cons("ClassBody")}
 
-    (Anno | ClassMod)* "class" Id  TypeParams? Super? Interfaces? -> ClassDecHead {cons("ClassDecHead")}
+    AnnoClassModList "class" Id  TypeParams? Super? Interfaces? -> ClassDecHead {cons("ClassDecHead")}
+    (Anno | ClassMod)* -> AnnoClassModList {cons("AnnoClassModList")}
 
   %% 8.1.1: Class Modifiers
   sorts ClassMod
@@ -51,8 +52,8 @@ exports
   %% 8.1.5: Superinterfaces
   sorts Interfaces
   context-free syntax
-    "implements" {InterfaceType ","}+ -> Interfaces {cons("ImplementsDec")}
-
+    "implements" InterfaceTypeList -> Interfaces {cons("ImplementsDec")}
+	 {InterfaceType ","}+  -> InterfaceTypeList {cons("InterfaceTypeList")}
 
   %% 8.1.6: Class Body and Member Declarations
   sorts

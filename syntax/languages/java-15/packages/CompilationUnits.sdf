@@ -14,4 +14,6 @@ exports
     CompilationUnit
 
   context-free syntax
-    PackageDec? ImportDec* TypeDec+ -> CompilationUnit   {cons("CompilationUnit")}
+    PackageDec? ImportDecList TypeDecList -> CompilationUnit   {cons("CompilationUnit")}
+    TypeDec+   -> TypeDecList {cons("TypeDecList")}
+    ImportDec* -> ImportDecList {cons("ImportDecList")}

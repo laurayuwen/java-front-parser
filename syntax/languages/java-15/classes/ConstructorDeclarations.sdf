@@ -20,14 +20,17 @@ exports
 
   context-free syntax
     ConstrHead ConstrBody ->  ConstrDec {cons("ConstrDec")}
-    (Anno | ConstrMod)* TypeParams? Id "(" {FormalParam ","}* ")" Throws? -> ConstrHead {cons("ConstrDecHead")}
+    AnnoConstrModList TypeParams? Id "(" FormalParamList ")" Throws? -> ConstrHead {cons("ConstrDecHead")}
+    
+    (Anno | ConstrMod)* -> AnnoConstrModList {cons("AnnoConstrModList")}
+    
+	{FormalParam ","}* -> FormalParamList {cons("FormalParamList")}
 
+    "{" ConstrInv? BlockStmList "}" -> ConstrBody {cons("ConstrBody")}
 
-    "{" ConstrInv? BlockStm* "}" -> ConstrBody {cons("ConstrBody")}
-
-             TypeArgs? "this"  "(" {Expr ","}* ")" ";" -> ConstrInv {cons("AltConstrInv")}
-             TypeArgs? "super" "(" {Expr ","}* ")" ";" -> ConstrInv {cons("SuperConstrInv")}
-    Expr "." TypeArgs? "super" "(" {Expr ","}* ")" ";" -> ConstrInv {cons("QSuperConstrInv")}
+             TypeArgs? "this"  "(" ExprList ")" ";" -> ConstrInv {cons("AltConstrInv")}
+             TypeArgs? "super" "(" ExprList ")" ";" -> ConstrInv {cons("SuperConstrInv")}
+    Expr "." TypeArgs? "super" "(" ExprList ")" ";" -> ConstrInv {cons("QSuperConstrInv")}
 
   sorts ConstrMod
   context-free syntax  

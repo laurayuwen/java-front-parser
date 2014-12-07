@@ -27,10 +27,13 @@ exports
   context-free syntax
     AnnoDec -> InterfaceDec
 
-    InterfaceDecHead "{" InterfaceMemberDec* "}" -> InterfaceDec {cons("InterfaceDec")}
+    InterfaceDecHead "{" InterfaceMemberDecList "}" -> InterfaceDec {cons("InterfaceDec")}
+    InterfaceMemberDec* -> InterfaceMemberDecList {cons("InterfaceMemberDecList")}
 
-    (Anno | InterfaceMod)* "interface" Id TypeParams? ExtendsInterfaces? -> InterfaceDecHead {cons("InterfaceDecHead")}
-    "extends" {InterfaceType ","}+ -> ExtendsInterfaces {cons("ExtendsInterfaces")}
+    AnnoInterfaceModList "interface" Id TypeParams? ExtendsInterfaces? -> InterfaceDecHead {cons("InterfaceDecHead")}
+    (Anno | InterfaceMod)* -> AnnoInterfaceModList {cons("AnnoInterfaceModList")}
+    
+    "extends" InterfaceTypeList -> ExtendsInterfaces {cons("ExtendsInterfaces")}
 
   context-free syntax
     ConstantDec       -> InterfaceMemberDec

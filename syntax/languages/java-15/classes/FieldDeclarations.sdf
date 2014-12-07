@@ -21,13 +21,14 @@ exports
     VarInit
 
   context-free syntax
-    (Anno | FieldMod)* Type { VarDec ","}+ ";" -> FieldDec {cons("FieldDec")}
+    AnnoFieldModList Type VarDecList ";" -> FieldDec {cons("FieldDec")}
+    (Anno | FieldMod)* -> AnnoFieldModList {cons("AnnoFieldModList")}
 
     VarDecId             -> VarDec {cons("VarDec")}
     VarDecId "=" VarInit -> VarDec {cons("VarDec")}
 
     Id      -> VarDecId
-    Id Dim+ -> VarDecId {cons("ArrayVarDecId")}
+    Id DimList -> VarDecId {cons("ArrayVarDecId")}
 
     "[" "]" -> Dim {cons("Dim")}
 

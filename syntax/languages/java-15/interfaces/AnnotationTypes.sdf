@@ -19,15 +19,18 @@ exports
     AnnoDecHead
 
   context-free syntax
-    AnnoDecHead "{" AnnoElemDec* "}" -> AnnoDec {cons("AnnoDec")}
-    (Anno | InterfaceMod)* "@" "interface" Id -> AnnoDecHead {cons("AnnoDecHead")}
+    AnnoDecHead "{" AnnoElemDecList "}" -> AnnoDec {cons("AnnoDec")}
+    AnnoElemDec* -> AnnoElemDecList {cons("AnnoElemDec")}
+    
+    AnnoInterfaceModList "@" "interface" Id -> AnnoDecHead {cons("AnnoDecHead")}
 
   sorts
     AnnoElemDec
     DefaultVal
 
   context-free syntax
-    AbstractMethodMod* Type Id "(" ")" DefaultVal? ";" -> AnnoElemDec {cons("AnnoMethodDec")}
+    AbstractMethodModList Type Id "(" ")" DefaultVal? ";" -> AnnoElemDec {cons("AnnoMethodDec")}
+    AbstractMethodMod* -> AbstractMethodModList {cons("AbstractMethodModList")}
 
     ConstantDec  -> AnnoElemDec
     ClassDec     -> AnnoElemDec

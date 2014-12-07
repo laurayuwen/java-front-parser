@@ -21,16 +21,19 @@ exports
   context-free syntax
     MethodDecHead MethodBody -> MethodDec {cons("MethodDec")}
 
-    (Anno | MethodMod)* TypeParams? ResultType Id "(" {FormalParam ","}* ")" Throws?      -> MethodDecHead {cons("MethodDecHead")}
-    (Anno | MethodMod)* TypeParams? ResultType Id "(" {FormalParam ","}* ")" Dim+ Throws? -> MethodDecHead {cons("DeprMethodDecHead")}
+    AnnoMethodModList TypeParams? ResultType Id "(" FormalParamList ")" Throws?      -> MethodDecHead {cons("MethodDecHead")}
+    AnnoMethodModList TypeParams? ResultType Id "(" FormalParamList ")" DimList Throws? -> MethodDecHead {cons("DeprMethodDecHead")}
+	 (Anno | MethodMod)* -> AnnoMethodModList {cons("AnnoMethodModList")}
 
     Type   -> ResultType
     "void" -> ResultType {cons("Void")}
 
   sorts FormalParam
   context-free syntax
-    (Anno | VarMod)* Type       VarDecId -> FormalParam {cons("Param")}
-    (Anno | VarMod)* Type "..." VarDecId -> FormalParam {cons("VarArityParam")}
+    AnnoVarModList Type       VarDecId -> FormalParam {cons("Param")}
+    AnnoVarModList Type "..." VarDecId -> FormalParam {cons("VarArityParam")}
+    (Anno | VarMod)* -> AnnoVarModList {cons("AnnoVarModList")}
+
 
   sorts VarMod
   context-free syntax
@@ -57,8 +60,9 @@ exports
     ExceptionType
 
   context-free syntax
-    "throws" {ExceptionType ","}+ -> Throws {cons("ThrowsDec")}
+    "throws" ExceptionTypeList -> Throws {cons("ThrowsDec")}
     ClassType -> ExceptionType
+    {ExceptionType ","}+ -> ExceptionTypeList {cons("ExceptionTypeList")}
     %% TypeVar -> ExceptionType
 
   %%%

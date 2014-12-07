@@ -9,7 +9,8 @@ imports
 exports
   sorts PackageName
   context-free syntax
-    {Id "."}+ -> PackageName {cons("PackageName")}
+     IdList -> PackageName {cons("PackageName")}
+     {Id "."}+ -> IdList {cons("IdList")}
 
   sorts
     TypeName

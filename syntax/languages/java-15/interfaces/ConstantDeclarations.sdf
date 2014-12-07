@@ -16,8 +16,9 @@ exports
     ConstantMod
 
   context-free syntax
-    (Anno | ConstantMod)* Type {VarDec ","}+ ";" -> ConstantDec {cons("ConstantDec")}
+    AnnoConstantModList Type VarDecList ";" -> ConstantDec {cons("ConstantDec")}
 
     Public -> ConstantMod
     Static -> ConstantMod
     Final  -> ConstantMod
+    (Anno | ConstantMod)* -> AnnoConstantModList {cons("AnnoConstantModList")}

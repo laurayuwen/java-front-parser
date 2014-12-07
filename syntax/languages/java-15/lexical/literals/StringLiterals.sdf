@@ -18,10 +18,11 @@ exports
   syntax
     StringLiteral -> <StringLiteral-CF>
     
-    "\"" StringPart* "\"" -> StringLiteral {cons("String")}
+    "\"" StringPartList "\"" -> StringLiteral {cons("String")}
     StringChars    -> StringPart {cons("Chars")}
     UnicodeEscape  -> StringPart
     EscapeSeq      -> StringPart
+    StringPart*	   -> StringPartList {cons("StringPartList")}
 
     <FooStringChars-LEX> -> StringChars
     ~[\"\\\n\13]+  -> <FooStringChars-LEX>

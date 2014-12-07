@@ -13,4 +13,5 @@ exports
     PackageDec
 
   context-free syntax
-    Anno* "package" PackageName ";" -> PackageDec {cons("PackageDec")}
+    AnnoList "package" PackageName ";" -> PackageDec {cons("PackageDec")}
+    Anno* -> AnnoList {cons("AnnoList")}

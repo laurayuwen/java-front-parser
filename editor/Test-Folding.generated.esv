@@ -22,26 +22,36 @@ folding Default folding definitions
   
   CompilationUnit.CompilationUnit
   PackageDec.PackageDec
+  AnnoList.AnnoList
   Expr.Lit
   StringLiteral
   StringLiteral.String
+  StringPartList.StringPartList
   VarDecId.ArrayVarDecId
-  OptTypeParams2
-  TypeParams.TypeParams
-  TypeParam.TypeParam
-  OptTypeBound2
-  TypeBound.TypeBound
-  OptThrows2
-  Throws.ThrowsDec
-  ClassType.ClassType
-  OptInterfaces2
-  Interfaces.ImplementsDec
-  InterfaceType.InterfaceType
-  OptExtendsInterfaces2
-  ExtendsInterfaces.ExtendsInterfaces
   DimList.DimList
+  OptTypeParams4
+  TypeParams.TypeParams
+  TypeParamList.TypeParamList
+  TypeParam.TypeParam
+  OptTypeBound4
+  TypeBound.TypeBound
+  ClassOrInterfaceTypeList.ClassOrInterfaceTypeList
+  OptThrows4
+  Throws.ThrowsDec
+  ExceptionTypeList.ExceptionTypeList
+  ClassType.ClassType
+  OptInterfaces4
+  Interfaces.ImplementsDec
+  InterfaceTypeList.InterfaceTypeList
+  InterfaceType.InterfaceType
+  AbstractMethodModList.AbstractMethodModList
+  OptExtendsInterfaces4
+  ExtendsInterfaces.ExtendsInterfaces
   MethodSpec.SuperMethod
   MethodSpec.QSuperMethod
   MethodSpec.GenericMethod
   PackageName.PackageName
+  IdList.IdList
+  ImportDecList.ImportDecList
   ImportDec.TypeImportOnDemandDec
+  TypeDecList.TypeDecList

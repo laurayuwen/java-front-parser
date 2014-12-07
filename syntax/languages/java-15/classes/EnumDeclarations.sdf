@@ -20,12 +20,14 @@ exports
   context-free syntax
     EnumDecHead EnumBody -> EnumDec {cons("EnumDec")}
 
-    (Anno | ClassMod)* "enum" Id Interfaces? -> EnumDecHead {cons("EnumDecHead")}
+    AnnoClassModList "enum" Id Interfaces? -> EnumDecHead {cons("EnumDecHead")}
 
-    "{" {EnumConst ","}*     EnumBodyDecs? "}" -> EnumBody {cons("EnumBody")}
-    "{" {EnumConst ","}* "," EnumBodyDecs? "}" -> EnumBody {cons("EnumBody")}
+    "{" EnumConstList     EnumBodyDecs? "}" -> EnumBody {cons("EnumBody")}
+    "{" EnumConstList "," EnumBodyDecs? "}" -> EnumBody {cons("EnumBody")}
+    {EnumConst ","}* -> EnumConstList {cons("EnumConstList")}
 
     Id EnumConstArgs? ClassBody?  -> EnumConst {cons("EnumConst")}
-    "(" {Expr ","}* ")"  -> EnumConstArgs {bracket}
+    "(" ExprList ")"  -> EnumConstArgs {bracket}
 
-    ";" ClassBodyDec* -> EnumBodyDecs {cons("EnumBodyDecs")}
+    ";" ClassBodyDecList -> EnumBodyDecs {cons("EnumBodyDecs")}
+	ClassBodyDec* -> ClassBodyDecList {cons("ClassBodyDecList")}
