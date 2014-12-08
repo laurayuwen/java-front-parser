@@ -12,7 +12,7 @@ rules
 	// compile like this:
 	// lang -jar strategoxt.jar -i starter.str -o Ocl -la stratego-sglr --lib -I .. -p oclParser.lib --clean
 
- 	langParse = ?[a, b] ; <parse-string(my-parse-error|<import-term(include/lang.tbl)>)> b ; (handleErrors <+ parsedJustFine2)
+ 	langParse = ?[a, b] ; <parse-string(my-parse-error|<import-term(include/Test.tbl)>)> b ; (handleErrors <+ parsedJustFine2)
 
  	my-parse-error = id//debug(!"ParseError: ")
  	handleErrors =
@@ -98,9 +98,7 @@ rules
 		//where <debug(!"Term1: ")> (a, b)
 
 	to-kast:
-		a#(b) -> $['ListWrap(
-			         [<to-kast-list> b]
-			       ) ]
+		a#(b) -> $[[<to-kast-list> b]]
 		//where debug(!"MyList: ")
 		//where not(!a => [])
 		//where debug(!"Term3: ")
@@ -108,7 +106,7 @@ rules
 
 	to-kast-list:
 		[hd | tl] -> $[[<to-kast> hd],,
-		               [<to-kast-list> tl]]
+		               [[<to-kast-list> tl]]]
 		where not(!tl => [])
 
 	to-kast-list:
@@ -117,12 +115,14 @@ rules
 
 	to-kast-list:
 		[] -> $[.KList]
+		
+		
 
 
 	// lang -jar strategoxt.jar -i starter.str -o Ocl -la stratego-sglr --lib -I .. -p oclParser.lib --clean
 	// lang -jar strategoxt.jar -i starter.str -o langParser -la stratego-sglr -I .. -m safecallcmd1 -p ro.uaic.info.fmse.parser
 
-	safecallcmd1 = ?[a, b] ; <parse-file(my-open-error, my-parse-error|<import-term(include/lang.tbl)>)> b ; to-kast
+	safecallcmd1 = ?[a, b] ; <parse-file(my-open-error, my-parse-error|<import-term(include/Test.tbl)>)> b ; to-kast
 
 
 

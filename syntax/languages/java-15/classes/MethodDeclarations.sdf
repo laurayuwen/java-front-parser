@@ -22,7 +22,7 @@ exports
     MethodDecHead MethodBody -> MethodDec {cons("MethodDec")}
 
     AnnoMethodModList TypeParams? ResultType Id "(" FormalParamList ")" Throws?      -> MethodDecHead {cons("MethodDecHead")}
-    AnnoMethodModList TypeParams? ResultType Id "(" FormalParamList ")" DimList Throws? -> MethodDecHead {cons("DeprMethodDecHead")}
+   
 	 (Anno | MethodMod)* -> AnnoMethodModList {cons("AnnoMethodModList")}
 
     Type   -> ResultType

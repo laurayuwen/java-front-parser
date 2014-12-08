@@ -29,23 +29,23 @@ folding Default folding definitions
   StringPartList.StringPartList
   VarDecId.ArrayVarDecId
   DimList.DimList
-  OptTypeParams4
+  OptTypeParams5
   TypeParams.TypeParams
   TypeParamList.TypeParamList
   TypeParam.TypeParam
-  OptTypeBound4
+  OptTypeBound5
   TypeBound.TypeBound
   ClassOrInterfaceTypeList.ClassOrInterfaceTypeList
-  OptThrows4
+  OptThrows5
   Throws.ThrowsDec
   ExceptionTypeList.ExceptionTypeList
   ClassType.ClassType
-  OptInterfaces4
+  OptInterfaces5
   Interfaces.ImplementsDec
   InterfaceTypeList.InterfaceTypeList
   InterfaceType.InterfaceType
   AbstractMethodModList.AbstractMethodModList
-  OptExtendsInterfaces4
+  OptExtendsInterfaces5
   ExtendsInterfaces.ExtendsInterfaces
   MethodSpec.SuperMethod
   MethodSpec.QSuperMethod

@@ -14,9 +14,6 @@ exports
     AnnoAbstractMethodModList TypeParams? ResultType
       Id "(" FormalParamList ")" Throws? ";" -> AbstractMethodDec {cons("AbstractMethodDec")}
 
-    AnnoAbstractMethodModList TypeParams? ResultType
-      Id "(" FormalParamList ")" DimList Throws? ";" -> AbstractMethodDec {cons("DeprAbstractMethodDec")}
-
     Public   -> AbstractMethodMod
     Abstract -> AbstractMethodMod
     (Anno | AbstractMethodMod)* -> AnnoAbstractMethodModList {cons("AnnoAbstractMethodModList")}
